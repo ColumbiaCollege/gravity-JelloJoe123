@@ -10,23 +10,23 @@ float tey = 200; //position y
 int d = 0;
 
 
-  float [] bally = new float [10];{
+  float [] bally = new float [10];{              //compressed array of Ball y  position
   for(int i =0; i<bally.length;i++){
     bally[i] = -10;
   }
   }
- float [] ball = new float [10];{
+ float [] ball = new float [10];{                //array for Ball x position
   for(int i =0; i<ball.length;i++){
     ball[i] = -10;
   }
  }
  
-  float [] spdx = new float [10];{
+  float [] spdx = new float [10];{               // Array for Ball speed in x way
   for(int i =0; i<spdx.length;i++){
     spdx[i] = 0;
   }
  }
- float [] spdy = new float [10];{
+ float [] spdy = new float [10];{                //Array for Ball speed in y way
   for(int i =0; i<spdy.length;i++){
     spdy[i] = 0;
   }
@@ -54,7 +54,7 @@ void draw() {
     
   
   
-  for ( int i = 0; i<10; i++){
+  for ( int i = 0; i<10; i++){                       //a for loop that loops the arrays and places the arrays into the ellipse command
     ellipse (ball[i],bally[i],15,15);
      ball[i] = (spdx[i] + ball[i]);
      bally[i] = (spdy[i] + bally[i]);
@@ -68,15 +68,15 @@ void draw() {
 void mouseClicked(){
 
   
-  ball[d]=100;
+  ball[d]=100;            //if mouse clicked, ball goes to (100,200)
   bally[d] = 200;
   
-  spdx[d] = 10;
+  spdx[d] = 10;           //if mouse clicked, ball goes a speed of 10 x ways and -15 y ways
   spdy[d] = -15;
   
   d++;
   
-  if (d>=10)
+  if (d>=10)              //allows for more than only 10 balls
   d=0;
   
 }
