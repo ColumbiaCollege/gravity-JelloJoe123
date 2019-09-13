@@ -20,6 +20,18 @@ int d = 0;
     ball[i] = -10;
   }
  }
+ 
+  float [] spdx = new float [10];{
+  for(int i =0; i<spdx.length;i++){
+    spdx[i] = 0;
+  }
+ }
+ float [] spdy = new float [10];{
+  for(int i =0; i<spdy.length;i++){
+    spdy[i] = 0;
+  }
+ }
+
 
 
 void setup() {
@@ -30,22 +42,24 @@ void draw() {
   background (#5B7BC9); //in draw so circles do not repeat
   fill(#E0C29A);
   rect(-1,200,370,100); //ground repeats
-  rect(500,200,600,100);
+  rect(500,200,140,100); //2nd ground
   drawEllipse(); //brings in void drawEllipse()
   fill(0);
   ellipse (109,220,17,17); //wheel
-  
+  fill(#ADACAB);
+  ellipse (109,220,9,9); // wheel decor
   fill(0);
 
   ellipse (tex,tey,15,15);
     
-  speedx = speedx * 1.001;
-  speedy++;
+  
   
   for ( int i = 0; i<10; i++){
     ellipse (ball[i],bally[i],15,15);
-     ball[i] = (speedx + ball[i]);
-     bally[i] = (speedy + bally[i]);
+     ball[i] = (spdx[i] + ball[i]);
+     bally[i] = (spdy[i] + bally[i]);
+     spdx[i] = spdx[i] * 1.001;
+     spdy[i]++;
   }
   
   
@@ -57,8 +71,8 @@ void mouseClicked(){
   ball[d]=100;
   bally[d] = 200;
   
-  speedx = 10;
-  speedy = -15;
+  spdx[d] = 10;
+  spdy[d] = -15;
   
   d++;
   
